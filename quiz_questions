@@ -125,7 +125,7 @@ Return the type of Anil's pet Colin
 users["Anil"][:pets][:colin]
 
 Return the smallest of Erik's favorite numbers
-
+users["Erik"][:favorite_numbers].first
 
 Return an array of Anil's favorite numbers that are even
 
