@@ -113,16 +113,16 @@ C. Given the following data structure:
     },
   }
 Return Jonathan's Twitter handle (i.e. the string "jonnyt")
-
+users["Jonathan"][:twitter]
 
 Return Erik's hometown
-
+users["Erik"][:home_town]
 
 Return the array of Erik's favorite numbers
-
+users["Erik"][:favorite_numbers]
 
 Return the type of Anil's pet Colin
-
+users["Anil"][:pets][:colin]
 
 Return the smallest of Erik's favorite numbers
 
