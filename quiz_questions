@@ -128,18 +128,19 @@ Return the smallest of Erik's favorite numbers
 users["Erik"][:favorite_numbers].first
 
 Return an array of Anil's favorite numbers that are even
-
+users["Anil"][:favorite_numbers].delete_if &:odd?
 
 Return an array of Jonathans favourite numbers, sorted in ascending order and excluding duplicates
-
+users["Jonathan"][:favorite_numbers].sort.uniq
 
 Add the number 7 to Erik's favorite numbers
-
+users["Erik"][:favorite_numbers] << 7
 
 Change Erik's hometown to Edinburgh
-
+users["Erik"][:home_town] = "Edinburgh"
 
 Add a pet dog to Erik called "Fluffy"
-
+users["Erik"][:pets][:dog2] ="fluffy"
 
 Add yourself to the users hash
+users["David"] = { twitter: "n/a", favorite_numbers: [4, 10], home_town: "Edinburgh", pets: {dog: "Moray" "Shiel"}}
