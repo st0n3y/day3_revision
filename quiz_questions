@@ -5,13 +5,13 @@ A. Given the following data structure:
 
 lines = ['Gyle Centre', 'Edinburgh Park', 'Murrayfield Stadium', 'Haymarket', 'Princes Street']
 Work out how many stops there are in the lines array
-lines.size
+lines.size, lines.length
 
 Return 'Edinburgh Park' from the array
 lines[1]
 
 How many ways can we return 'Princes Street' from the array?
-lines[4], lines.last, lines[-1], lines.at(4)
+lines[4] , lines.last , lines[-1] , lines.at(4) , lines[lines.length-1]
 
 Work out the index position of 'Haymarket'
 lines.index("Haymarket")
@@ -20,7 +20,7 @@ Add 'Airport' to the start of the array
 lines.unshift("Airport")
 
 Add 'York Place' to the end of the array
-lines << "York Place", line.push("York Place")
+lines << "York Place" , lines.push("York Place")
 
 Remove 'Edinburgh Park' from the array using it's name
 lines.delete("Edinburgh Park")
@@ -65,16 +65,16 @@ B. Given the following data structure:
 
   my_hash = {0 => "Zero", 1 => "One", :two => "Two", "two" => 2}
 How would you return the string "One"?
-my_hash[1]
+my_hash[1] , my_hash.fetch(1)
 
 How would you return the string "Two"?
-my_hash[:two]
+my_hash[:two] , my_hash.fetch(:two)
 
 How would you return the number 2?
 my_hash["two"]
 
 How would you add {3 => "Three"} to the hash?
-my_hash[3] = "Three"
+my_hash[3] = "Three" , my_hash.merge1(3 => "Three")
 
 How would you add {:four => 4} to the hash?
 my_hash[:four] = 4
@@ -94,7 +94,7 @@ C. Given the following data structure:
     },
     "Erik" => {
       :twitter => "eriksf",
-      :favorite_numbers => [8, 12, 24],
+      :favourite_numbers => [8, 12, 24],
       :home_town => "Linlithgow",
       :pets => {
         "blinky" => :fish,
@@ -105,7 +105,7 @@ C. Given the following data structure:
     },
     "Anil" => {
       :twitter => "bridgpally",
-      :favorite_numbers => [12, 14, 85, 88],
+      :favourite_numbers => [12, 14, 85, 88],
       :home_town => "Dunbar",
       :pets => {
         :colin => :snake
@@ -118,29 +118,66 @@ users["Jonathan"][:twitter]
 Return Erik's hometown
 users["Erik"][:home_town]
 
-Return the array of Erik's favorite numbers
-users["Erik"][:favorite_numbers]
+Return the array of Erik's favourite numbers
+users["Erik"][:favourite_numbers]
 
 Return the type of Anil's pet Colin
 users["Anil"][:pets][:colin]
 
-Return the smallest of Erik's favorite numbers
-users["Erik"][:favorite_numbers].first
+Return the smallest of Erik's favourite numbers
+users["Erik"][:favourite_numbers].first 
+,
+users["Erik"][:favourite_numbers].min
 
-Return an array of Anil's favorite numbers that are even
-users["Anil"][:favorite_numbers].delete_if &:odd?
+Return an array of Anil's favourite numbers that are even
+users["Anil"][:favourite_numbers].delete_if &:odd?
+,
+
+
+anil_array = []
+for nu in users["Anil"][:favourite_numbers]
+ if num%2 == 0
+   anil_array.push(num)
+ end
+end
+
+puts anil_array
+,
+
+
+for num in users["Anil"][:favourite_numbers]
+  if num.odd?
+    users["Anil"][:favourite_numbers]. delete(num)
+  end
+end
+
+puts users["Anil"][:favourite_numbers] 
+,
+
+result = []
+for num in users["Anil"][:favourite_numbers]
+  result << num if num.even?
+end
+
+puts result
 
 Return an array of Jonathans favourite numbers, sorted in ascending order and excluding duplicates
-users["Jonathan"][:favorite_numbers].sort.uniq
+users["Jonathan"][:favourite_numbers].sort.uniq
 
-Add the number 7 to Erik's favorite numbers
-users["Erik"][:favorite_numbers] << 7
+Add the number 7 to Erik's favourite numbers
+users["Erik"][:favourite_numbers] << 7
 
 Change Erik's hometown to Edinburgh
 users["Erik"][:home_town] = "Edinburgh"
 
 Add a pet dog to Erik called "Fluffy"
 users["Erik"][:pets][:dog2] ="fluffy"
+,
+users["Erik"][:pets]"fluffy" = [:dog]
 
 Add yourself to the users hash
 users["David"] = { twitter: "n/a", favorite_numbers: [4, 10], home_town: "Edinburgh", pets: {dog: "Moray" "Shiel"}}
+
+,
+
+users["David"] = { :twitter => "n/a", :favorite_numbers => [4, 10], :home_town => "Edinburgh", :pets => {dog: "Moray" "Shiel"}}
